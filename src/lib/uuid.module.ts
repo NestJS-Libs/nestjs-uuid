@@ -1,14 +1,8 @@
 import { Module } from '@nestjs/common';
-import { UuidGeneratorService } from './services/uuid-generator.service';
-import { UuidServiceToken } from './uuid.consts';
+import { UuidService } from 'src/lib/services/uuid-generator.service';
 
 @Module({
-  providers: [
-    {
-      provide: UuidServiceToken,
-      useClass: UuidGeneratorService,
-    },
-  ],
-  exports: [UuidServiceToken],
+  providers: [UuidService],
+  exports: [UuidService],
 })
 export class UuidModule {}

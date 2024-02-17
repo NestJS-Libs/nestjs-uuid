@@ -1,9 +1,8 @@
 import { Test } from '@nestjs/testing';
-import { UuidModule } from '../uuid.module';
-import { UuidService } from '../contracts/uuid.service';
-import { UuidServiceToken } from '../uuid.consts';
+import { UuidService } from 'src/lib/services/uuid-generator.service';
+import { UuidModule } from 'src/lib/uuid.module';
 
-describe('UUIDGeneratorService', () => {
+describe('UuidService', () => {
   let service: UuidService;
 
   beforeEach(async () => {
@@ -11,7 +10,7 @@ describe('UUIDGeneratorService', () => {
       imports: [UuidModule],
     }).compile();
 
-    service = module.get<UuidService>(UuidServiceToken);
+    service = module.get<UuidService>(UuidService);
   });
 
   it('should be defined', () => {

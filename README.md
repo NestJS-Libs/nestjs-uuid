@@ -37,10 +37,25 @@ export class AppModule {}
 
 Inject uuid service into a provider:
 
+v0.0.5
+
 ```ts
 @Injectable()
 export class AppService {
   constructor(@InjectUuidService() private readonly uuidService: UuidService) {}
+
+  getHello() {
+    return this.uuidService.generate();
+  }
+}
+```
+
+v0.0.6
+
+```ts
+@Injectable()
+export class AppService {
+  constructor(private readonly uuidService: UuidService) {}
 
   getHello() {
     return this.uuidService.generate();

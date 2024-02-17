@@ -1,1 +1,1 @@
-export const UuidServiceToken = Symbol('UuidService');
+export const UuidServiceToken = 'UuidService';
