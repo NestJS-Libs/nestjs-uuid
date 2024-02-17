@@ -50,7 +50,7 @@ export class AppService {
 }
 ```
 
-v0.0.6
+After v.0.0.5
 
 ```ts
 @Injectable()

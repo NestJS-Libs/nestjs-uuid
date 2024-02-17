@@ -115,26 +115,16 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: https://registry.npmjs.org/
 
-      - name: Update version
-        run: |
-          if [[ "${{ github.ref }}" == "refs/heads/develop" ]]; then
-            yarn version --new-version "$(yarn version --no-git-tag-version --minor) --dev"
-          fi
-
-      - name: Commit and push if needed
-        run: |
-          git config --global user.name 'GitHub Actions Bot'
-          git config --global user.email 'action.bot@github.com'
-          git commit -am 'build: increment version' || exit 0
-          git push
-
       - uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist
 
+      - name: Setup .npmrc file to publish to npm
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+
       - name: Publish to npm
-        run: yarn publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 

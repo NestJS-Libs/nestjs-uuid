@@ -1,6 +1,6 @@
 {
   "name": "nestjs-uuid",
-  "version": "0.0.6",
+  "version": "0.1.4",
   "description": "A NestJS module for generating UUIDs",
   "author": "Fernando Dorantes <fernando@dorant.es>",
   "private": false,
@@ -25,8 +25,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "publish": "npm publish"
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -62,10 +61,6 @@
   },
   "files": [
     "dist",
-    "index.js",
-    "index.d.ts",
-    "LICENSE",
-    "README.md",
-    "CHANGELOG.md"
+    "README.md"
   ]
 }
